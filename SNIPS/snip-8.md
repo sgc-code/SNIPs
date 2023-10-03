@@ -143,7 +143,7 @@ DA_mode 0 is L1DA and DA_mode 1 is L2DA.
 
 Define: 
 
-`common_tx_fields =  [TX_PREFIX, version, address, h(tip, resource_bounds_for_fee), h(paymaster_data), chain_id, nonce, nonce_data_availability_mode || fee_data_availability_mode]`
+`common_tx_fields =  [TX_PREFIX, version, address, h(tip, resource_bounds_for_fee), h(paymaster_data), chain_id, nonce, nonce_data_availability_mode || fee_data_availability_mode, reserve_field]`
 
 Where:
 
@@ -151,6 +151,7 @@ Where:
 - `address` is  `sender_address` for Daeclare and Invoke or `contract_address` for DeployAccount
 - `chain_id` is a constant value that specifies the network to which this transaction is sent. See[ Chain-Id](https://docs.starknet.io/documentation/architecture_and_concepts/Blocks/transactions/#chain-id).
 - `h(tip, resource_bounds_for_fee) = h(tip, (resource||max_amount||max_price_per_unit),(resource||max_amount||max_price_per_unit)...)`, where the resource order is `L1_gas`, `L2_gas`, and the resource name is at most 7 characters.
+- `reserve_field` is a felt field that's currently set to 0. It could potentially be utilized in the future to introduce features that haven't been defined yet, like an access list.
 - `h` is the [Poseidon hash](https://docs.starknet.io/documentation/architecture_and_concepts/Hashing/hash-functions/#pedersen_hash)
 
 **Transaction Hash Calculation:** 
