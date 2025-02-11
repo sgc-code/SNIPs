@@ -28,6 +28,9 @@ An app can execute “outside transactions” by building a struct representing 
 
 An `OutsideExecution` represents a transaction to be executed on behalf of the user account, passed in by another contract. Below is a Cairo representation, but it needs to be constructed offchain.
 
+#### 1.1. Version 1 and 2
+
+
 ```rust
 #[derive(Copy, Drop, Serde)]
 struct OutsideExecution {
